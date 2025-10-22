@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>این دامنه برای فروش است</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap');
+        :root {
+            --primary: #6d28d9;
+            --primary-light: #8b5cf6;
+            --bg1: #0f172a;
+            --bg2: #1e293b;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --radius: 16px;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at top, var(--bg1), var(--bg2));
+            color: var(--text);
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            max-width: 480px;
+            width: 90%;
+            animation: fadeIn 0.8s ease;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, var(--primary-light), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: var(--muted);
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .domain {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 28px;
+            border: 1px dashed rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            display: inline-block;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            border-radius: 10px;
+            padding: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            box-shadow: 0 6px 20px rgba(109, 40, 217, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(109, 40, 217, 0.4);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        footer {
+            margin-top: 28px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>این دامنه برای فروش است</h1>
+    <p>برای خرید یا اطلاعات بیشتر از یکی از روش‌های زیر استفاده کنید:</p>
+
+    <div class="domain" id="domain"></div>
+
+    <div class="actions">
+        <a id="telegramBtn" class="btn btn-primary" target="_blank">💬 ارسال پیام در تلگرام</a>
+        <a id="whatsappBtn" class="btn btn-outline" target="_blank">📱 ارسال پیام در واتساپ</a>
+        <a id="callBtn" class="btn btn-outline">📞 تماس تلفنی</a>
+    </div>
+
+    <footer>© تمامی حقوق برای مالک دامنه محفوظ است</footer>
+</div>
+
+<script>
+    (function() {
+        const domain = window.location.hostname;
+        const telegram = 'Ehsanera';
+        const phone = '+989364192666';
+        const whatsapp = '989364192666';
+
+        document.getElementById('domain').textContent = domain;
+        document.getElementById('telegramBtn').href = `https://t.me/${telegram}`;
+        document.getElementById('whatsappBtn').href = `https://wa.me/${whatsapp}?text=${encodeURIComponent('سلام، برای خرید دامنه '+ domain +' پیام می‌دهم.')}`;
+        document.getElementById('callBtn').href = `tel:${phone}`;
+    })();
+</script>
+</body>
+</html>
