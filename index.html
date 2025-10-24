@@ -139,11 +139,13 @@
 
 <script>
     (function() {
-        const domain = window.location.hostname;
         const telegram = 'Ehsanera';
         const phone = '+989364192666';
         const whatsapp = '989364192666';
 
+        const params = new URLSearchParams(window.location.search);
+        const domain = params.get("d") || window.location.hostname;
+        document.getElementById("domain").textContent = domain;
         document.getElementById('domain').textContent = domain;
         document.getElementById('telegramBtn').href = `https://t.me/${telegram}`;
         document.getElementById('whatsappBtn').href = `https://wa.me/${whatsapp}?text=${encodeURIComponent('سلام، برای خرید دامنه '+ domain +' پیام می‌دهم.')}`;
